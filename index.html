@@ -4,12 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PheroTube</title>
+    <title>Phero-Tube</title>
+
+    <!-- TailWind -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/8f6dc4d4e3.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="styles/style.css">
+
 </head>
 
-<body>
+<body class="font-inter mx-15">
     <header>
-
+        <nav class="flex justify-between items-center pt-13">
+            <img src="assets/Logo.png" alt="" class="w-[131px]">
+            <label class="input w-1/2 outline-none">
+                <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                        stroke="currentColor">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.3-4.3"></path>
+                    </g>
+                </svg>
+                <input type="search" required placeholder="Search" />
+            </label>
+            <button class="btn btn-soft bg-[#ff1f3d] text-white mt-5">Blog</button>
+        </nav>
+        <div class="flex justify-center items-center border-b pb-5 border-[#d3d3d3]">
+            <button class="btn btn-soft bg-[#d3d3d3]">Short by View</button>
+        </div>
     </header>
     <main>
 
