@@ -26,7 +26,6 @@ const loadCategories = () => {
 const displayCategories = (categories) => {
     const categoryContainer = document.getElementById('categories');
     for (const item of categories) {
-        console.log(item)
         // create a button for each category
         const button = document.createElement('button');
         button.classList = 'btn bg-[#d3d3d3]';
