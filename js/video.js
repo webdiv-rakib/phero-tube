@@ -13,17 +13,20 @@ const displayVideos = (videos) => {
         const card = document.createElement('div');
         card.classList = 'card bg-base-100 w-96 shadow-sm';
         card.innerHTML = `
-         <figure>
-            <img
+         <figure class="h-[200px]">
+            <img class="h-full w-full object-cover"
                 src=${video.thumbnail}
                     alt="Shoes" />
          </figure>
         <div class="card-body">
-        <h2 class="card-title">
-        Card Title
-        <div class="badge badge-secondary">NEW</div>
-        </h2>
-        <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+            <div>
+                <img src=${video.authors[0].profile_picture} class="h-10 w-10 rounded-full" />
+            </div>
+            <div>
+                <h2>${video.title}</h2>
+                <p>${video.authors[0].profile_name}</p>
+                <p></p>
+            </div>
         </div>
         `
         videosContainer.appendChild(card);
