@@ -16,16 +16,16 @@ const displayVideos = (videos) => {
          <figure class="h-[200px]">
             <img class="h-full w-full object-cover"
                 src=${video.thumbnail}
-                    alt="Shoes" />
+            alt="Shoes" />
          </figure>
-        <div class="card-body">
+        <div class="card-body flex flex-row">
             <div>
                 <img src=${video.authors[0].profile_picture} class="h-10 w-10 rounded-full" />
             </div>
             <div>
-                <h2>${video.title}</h2>
+                <h2 class="font-bold">${video.title}</h2>
                 <p>${video.authors[0].profile_name}</p>
-                <p></p>
+                <img src="https://img.icons8.com/?size=100&id=D9RtvkuOe31p&format=png&color=000000" class="w-5"/>
             </div>
         </div>
         `
