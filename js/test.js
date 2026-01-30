@@ -5,4 +5,14 @@ const isVerified = '';
 // else {
 //     console.log('user is not verified')
 // }
-console.log(`${isVerified === true ? 'user is verified' : 'user is not verified'}`)
+// console.log(`${isVerified === true ? 'user is verified' : 'user is not verified'}`)
+
+function getTimeString(time) {
+    // get hour and rest seconds
+    const hour = parseInt(time / 3600);
+    let remainingSeconds = time % 3600;
+    const minute = parseInt(remainingSeconds / 60);
+    remainingSeconds = remainingSeconds % 60;
+    return `${hour} hour ${minute} minutes ${remainingSeconds} seconds ago`;
+}
+console.log(getTimeString(14320))
