@@ -13,10 +13,11 @@ const displayVideos = (videos) => {
         const card = document.createElement('div');
         card.classList = 'card bg-base-100 w-96 shadow-sm';
         card.innerHTML = `
-         <figure class="h-[200px]">
+         <figure class="h-[200px] relative">
             <img class="h-full w-full object-cover"
                 src=${video.thumbnail}
             alt="Shoes" />
+            <span class="absolute right-2 bottom-2 text-white bg-black rounded p-1">${video.others.posted_date}</span>
          </figure>
         <div class="card-body flex flex-row gap-5">
             <div>
@@ -25,9 +26,10 @@ const displayVideos = (videos) => {
             <div>
                 <h2 class="font-bold">${video.title}</h2>
                 <div class="flex flex-row justify-center items-center gap-3">
-                    <p>${video.authors[0].profile_name}</p>
-                    <img src="https://img.icons8.com/?size=100&id=D9RtvkuOe31p&format=png&color=000000" class="w-4 h-4"/>
+                    <p class="w-max">${video.authors[0].profile_name}</p>
+                    ${video.authors[0].verified == true ? '<img src="https://img.icons8.com/?size=100&id=D9RtvkuOe31p&format=png&color=000000" class="w-4 h-4"/>' : ''}
                 </div>
+                <p>Views: ${video.others.views}</p>
             </div>
         </div>
         `
