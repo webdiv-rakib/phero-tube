@@ -26,7 +26,7 @@ const displayVideos = (videos) => {
             <img class="h-full w-full object-cover"
                 src=${video.thumbnail}
             alt="Shoes" />
-            ${video.others.posted_date?.length == 0 ? '' : `<span class="absolute right-2 bottom-2 text-white bg-black rounded p-1">${getTimeString(video.others.posted_date)}</span>`
+            ${video.others.posted_date?.length == 0 ? '' : `<span class="absolute right-2 bottom-2 text-white bg-black rounded p-1 text-xs">${getTimeString(video.others.posted_date)}</span>`
             }
             
          </figure>
@@ -40,7 +40,7 @@ const displayVideos = (videos) => {
                     <p class="w-max">${video.authors[0].profile_name}</p>
                     ${video.authors[0].verified == true ? '<img src="https://img.icons8.com/?size=100&id=D9RtvkuOe31p&format=png&color=000000" class="w-4 h-4"/>' : ''}
                 </div>
-                <p>Views: ${video.others.views}</p>
+                <p>${video.others.views} views</p>
             </div>
         </div>
         `
