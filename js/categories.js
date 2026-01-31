@@ -11,23 +11,26 @@ const loadCategories = () => {
         .catch(err => console.log(err))
 }
 
-// const loadCategoryVideo = (id) => {
-//     // alert(id);
-//     fetch(`https://openapi.programming-hero.com/api/phero-tube/category/${id}`)
-//         .then(res => res.json())
-//         .then(data => displayVideos(data.category))
-//         .catch(err => console.log(err))
-// }
-
+const removeActiveClass = () => {
+    const buttons = document.getElementsByClassName("category-btn");
+    for(let btn of buttons){
+        btn.classList.remove('active')
+    }
+}
 const loadCategoryVideo = (id) => {
     // alert(id);
     fetch(`https://openapi.programming-hero.com/api/phero-tube/category/${id}`)
         .then(res => res.json())
-        .then(data => displayVideos(data.category))
+        .then(data => {
+            // remove active class from all
+            removeActiveClass();
+            // active only given id
+            const activeBtn = document.getElementById(`btn-${id}`)
+            activeBtn.classList.add("active")
+            displayVideos(data.category)
+        })
         .catch(err => console.log(err))
 }
-
-
 
 // create displayCategories
 const displayCategories = (categories) => {
@@ -35,7 +38,7 @@ const displayCategories = (categories) => {
     for (const item of categories) {
         const buttonContainer = document.createElement("div");
         buttonContainer.innerHTML = `
-            <button class="btn bg-[#d3d3d3]" onclick="loadCategoryVideo(${item.category_id})">${item.category}</button>
+            <button id="btn-${item.category_id}" class="btn bg-[#d3d3d3] category-btn" onclick="loadCategoryVideo(${item.category_id})">${item.category}</button>
         `
         categoryContainer.appendChild(buttonContainer);
     }
