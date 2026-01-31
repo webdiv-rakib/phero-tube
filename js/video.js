@@ -7,8 +7,8 @@ function getTimeString(time) {
     return `${hour} hour ${minute} minutes ${remainingSeconds} seconds ago`;
 }
 
-const loadVideos = () => {
-    const url = 'https://openapi.programming-hero.com/api/phero-tube/videos';
+const loadVideos = (searchText = "") => {
+    const url = `https://openapi.programming-hero.com/api/phero-tube/videos?title=${searchText}`;
     fetch(url)
         .then(res => res.json())
         .then(data => displayVideos(data.videos))
@@ -26,7 +26,7 @@ const loadDetails = async (videoId) => {
 const displayDetails = (video) => {
     console.log(video);
     const detailContainer = document.getElementById("modal-content")
-    detailContainer.innerHTML=`
+    detailContainer.innerHTML = `
     <img src="${video.thumbnail}"/>
     <p>${video.description}</p>
     `
@@ -86,5 +86,9 @@ const displayVideos = (videos) => {
         videosContainer.appendChild(card);
     }
 }
+
+document.getElementById("search-input").addEventListener("keyup", (e) => {
+    loadVideos(e.target.value);
+})
 
 loadVideos();
