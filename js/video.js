@@ -18,6 +18,21 @@ const loadVideos = () => {
 const displayVideos = (videos) => {
     const videosContainer = document.getElementById('videos');
     videosContainer.innerHTML = "";
+
+    if (videos.length === 0) {
+        videosContainer.classList.remove("grid")
+        videosContainer.innerHTML = `
+            <div class="min-h-screen flex flex-col gap-5 justify-center items-center">
+            <img src="assets/Icon.png"/>
+            <h2 class="text-center text-xl font-bold">NO CONTENT HERE</h2>
+            </div>
+        `;
+        return;
+    }
+    else {
+        videosContainer.classList.add("grid");
+    }
+
     for (const video of videos) {
         const card = document.createElement('div');
         card.classList = 'card bg-base-100 w-96 shadow-sm';
