@@ -17,7 +17,7 @@ const loadVideos = () => {
 
 const displayVideos = (videos) => {
     const videosContainer = document.getElementById('videos');
-    // videosContainer.innerHTML = "";
+    videosContainer.innerHTML = "";
     for (const video of videos) {
         const card = document.createElement('div');
         card.classList = 'card bg-base-100 w-96 shadow-sm';
